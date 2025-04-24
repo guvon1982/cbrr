@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel do Comitê - Pendências</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F7F9F9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #61958C;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      color: #61958C;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #61958C;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f1f1f1;
+      color: #444;
+    }
+
+    ul.pendencias {
+      padding-left: 16px;
+      margin: 0;
+    }
+
+    ul.pendencias li {
+      margin-bottom: 5px;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .btn-view {
+      background-color: #61958C;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .btn-view:hover {
+      background-color: #4e7d76;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      background: #eee;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td:before {
+        position: absolute;
+        left: 15px;
+        top: 12px;
+        white-space: nowrap;
+        font-weight: bold;
+      }
+
+      td:nth-of-type(1):before { content: "Candidato"; }
+      td:nth-of-type(2):before { content: "Pendências"; }
+      td:nth-of-type(3):before { content: "Ações"; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="imgs/Marca_CBRR_APROVADA_FINALIZADA_SAIDA_BRANCA.png" alt="Logo CBRR">
+    <strong>Painel do Comitê de Registro</strong>
+  </div>
+  <div class="user-menu">
+    <span class="user-name">Comitê Técnico ▾</span>
+  </div>
+</header>
+
+<div class="main">
+  <nav class="sidebar">
+    <a href="tela_Comite_Inicial_Dashboard.html">🏠 Dashboard</a>
+    <a href="tela_Comite_StatusCandidatos.html">📊 Status Candidatos</a>
+    <a href="tela_PendenciasComite.html">📌 Pendências</a>
+    <a href="tela_Comite_Historico.html">📁 Histórico</a>
+    <a href="tela_Comite_Configuracoes.html">⚙️ Configurações</a>
+    <a href="tela_Comite_Sair.html">🚪 Sair</a>
+  </nav>
+
+  <div class="content">
+    <div class="container">
+      <h2>Solicitações com Pendências</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Candidato</th>
+            <th>Pendência(s)</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>João da Silva</td>
+            <td>
+              <ul class="pendencias">
+                <li>Comprovante de pagamento ilegível</li>
+              </ul>
+            </td>
+            <td><a href="tela_PendenciasComite_VerDetalhes.html"><button class="btn-view">🔍 Ver Detalhes</button></a></td>
+          </tr>
+          <tr>
+            <td>Maria Fernanda Costa</td>
+            <td>
+              <ul class="pendencias">
+                <li>Declaração de Idoneidade não confirmada</li>
+                <li>Documento de Identidade ausente</li>
+              </ul>
+            </td>
+            <td><a href="tela_PendenciasComite_VerDetalhes.html"><button class="btn-view">🔍 Ver Detalhes</button></a></td>
+          </tr>
+          <tr>
+            <td>Carlos Andrade</td>
+            <td>
+              <ul class="pendencias">
+                <li>Diploma de Pós-Graduação pendente</li>
+                <li>Falta confirmação de leitura do Código de Ética</li>
+              </ul>
+            </td>
+            <td><a href="tela_PendenciasComite_VerDetalhes.html"><button class="btn-view">🔍 Ver Detalhes</button></a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 - CBRR - <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalhes da Pendência - CBRR</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F7F9F9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #61958C;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      color: #61958C;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #61958C;
+      margin-bottom: 20px;
+    }
+
+    .info {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+      font-size: 14px;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f1f1f1;
+    }
+
+    .status-pendente {
+      color: #d40000;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      background-color: #61958C;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn:hover {
+      background-color: #4e7d76;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      height: 100px;
+    }
+
+    .actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="imgs/Marca_CBRR_APROVADA_FINALIZADA_SAIDA_BRANCA.png" alt="Logo CBRR">
+    <strong>Painel do Comitê de Registro</strong>
+  </div>
+  <div class="user-menu">
+    <span class="user-name">Comitê Técnico ▾</span>
+  </div>
+</header>
+
+<div class="main">
+  <nav class="sidebar">
+    <a href="tela_Comite_Inicial_Dashboard.html">🏠 Dashboard</a>
+    <a href="tela_Comite_StatusCandidatos.html">📊 Status Candidatos</a>
+    <a href="tela_PendenciasComite.html">📌 Pendências</a>
+    <a href="tela_Comite_Historico.html">📁 Histórico</a>
+    <a href="tela_Comite_Configuracoes.html">⚙️ Configurações</a>
+    <a href="tela_Comite_Sair.html">🚪 Sair</a>
+  </nav>
+
+  <div class="content">
+    <div class="container">
+      <h2>Detalhes da Solicitação com Pendência</h2>
+
+      <div class="info">
+        <strong>Nome:</strong> João da Silva<br/>
+        <strong>ID Solicitação:</strong> #12345<br/>
+        <strong>Email:</strong> joao.silva@email.com<br/>
+        <strong>Data de Envio:</strong> 13/04/2025 14:12
+      </div>
+
+      <div class="section-title">Pendências Identificadas:</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Comprovante de Pagamento</td>
+            <td class="status-pendente">Ilegível</td>
+            <td><a href="#">📄 Ver Documento</a></td>
+          </tr>
+          <tr>
+            <td>Declaração de Idoneidade</td>
+            <td class="status-pendente">Não confirmada</td>
+            <td><a href="#">📄 Ver Declaração</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">Comentários Internos / Solicitação de Correção:</div>
+      <textarea placeholder="Descreva aqui a correção necessária ou observações adicionais..."></textarea>
+
+      <div class="actions">
+        <button class="btn">✔️ Marcar como Resolvido</button>
+        <button class="btn">⚠️ Solicitar Correção</button>
+        <button class="btn" onclick="window.history.back()">← Voltar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 - CBRR - <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a>
+</footer>
+
+</body>
+</html>

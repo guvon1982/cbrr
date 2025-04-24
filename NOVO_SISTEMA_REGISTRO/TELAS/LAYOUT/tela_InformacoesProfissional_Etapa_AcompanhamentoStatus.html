@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acompanhamento da Solicitação - CBRR</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F7F9F9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #61958C;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+
+    .user-name {
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 30px;
+      background: white;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 160px;
+      z-index: 10;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .user-menu:hover .dropdown {
+      display: block;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      color: #61958C;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #61958C;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .progress-bar span {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      background-color: #e0e0e0;
+    }
+
+    .done {
+      background-color: #C1E7D9;
+      color: #2d685f;
+    }
+
+    .pending {
+      background-color: #FFEAB6;
+      color: #8A6D1D;
+    }
+
+    .future {
+      background-color: #f0f0f0;
+      color: #777;
+    }
+
+    .status-atual {
+      font-size: 16px;
+      margin: 20px 0;
+    }
+
+    .status-atual strong {
+      font-size: 18px;
+      color: #D08900;
+    }
+
+    .info-bloco {
+      margin-top: 25px;
+      line-height: 1.6;
+    }
+
+    .info-bloco a {
+      color: #61958C;
+      text-decoration: underline;
+    }
+
+    .historico {
+      margin-top: 30px;
+    }
+
+    .historico p {
+      margin-bottom: 10px;
+    }
+
+    .comite-msg {
+      background: #FFF3CD;
+      padding: 15px;
+      border-left: 5px solid #FFA726;
+      margin: 15px 0;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #61958C;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background-color: #4e7d76;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      background: #eee;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .progress-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center;">
+    <img src="imgs/Marca_CBRR_APROVADA_FINALIZADA_SAIDA_BRANCA.png" alt="Logo CBRR">
+    <strong>Sistema de Registro Profissional</strong>
+  </div>
+  <div class="user-menu">
+    <span class="user-name">Olá, João da Silva ▾</span>
+    <div class="dropdown">
+      <a href="#">Meu Perfil</a>
+      <a href="#">Alterar Senha</a>
+      <a href="#">Sair</a>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <nav class="sidebar">
+    <a href="tela_Usuario_Dashboard.html">🏠 Dashboard</a>
+    <a href="tela_InformacoesProfissional_Etapa_AcompanhamentoStatus.html">📝 Acompanhamento Solicitação</a>
+    <a href="tela_InformacoesProfissional_Etapa01_OK.html">📋 Formulário de Solicitação de Registro</a>
+    <a href="tela_InformacoesProfissional_Etapa08_OK.html">📄 Enviar Documentos</a>
+    <a href="tela_Usuario_DadosPessoais.html">👤 Dados Pessoais</a>
+    <a href="tela_CadastroPerfilPublico.html">🧾 Perfil Público</a>
+  </nav>
+
+  <div class="content">
+    <div class="container">
+      <h2>Acompanhamento Solicitação</h2>
+
+      <label><strong>Progresso:</strong></label>
+      <div class="progress-bar">
+        <span class="done">Formulário ✔</span>
+        <span class="done">Docs ✔</span>
+        <span class="done">Pgto ✔</span>
+        <span class="pending">Análise CBRR ⏳</span>
+        <span class="future">Finalizado</span>
+      </div>
+
+      <div class="status-atual">
+        <label><strong>Status Atual:</strong></label><br/>
+        <strong>⏳ Em Análise pelo Comitê de Registro</strong><br/>
+        <small>(Previsão de resposta em até 60 dias)</small>
+      </div>
+
+      <div class="info-bloco">
+        <p><strong>Detalhes da Submissão:</strong></p>
+        <p>Data de Envio Completo: 14/04/2025 15:42</p>
+        <p><a href="#">Visualizar Formulário Enviado</a></p>
+        <p><a href="#">Ver Documentos Enviados</a></p>
+      </div>
+
+      <div class="historico">
+        <p><strong>Histórico e Comunicações:</strong></p>
+        <p>14/04/2025: Solicitação e documentos recebidos.</p>
+        <p>14/04/2025: Confirmação enviada por e-mail.</p>
+
+        <div class="comite-msg">
+          <strong>Comunicação do Comitê (18/04/2025):</strong>
+          <p>Prezado(a) João, favor reenviar o comprovante de quitação da anuidade profissional (arquivo ilegível).</p>
+          <button class="btn">Enviar Documento Corrigido</button>
+        </div>
+
+        <!-- Exemplo de decisão -->
+        <!--
+        <div class="comite-msg" style="border-left-color: #4CAF50;">
+          <strong>Decisão do Comitê (22/05/2025):</strong>
+          <p>Sua solicitação foi <strong>Aprovada ✔️</strong>.</p>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 - CBRR - <a href="#">Termos de Uso</a> - <a href="#">Política de Privacidade</a>
+</footer>
+
+</body>
+</html>
