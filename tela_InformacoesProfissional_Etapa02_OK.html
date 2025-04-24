@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard + Formulário - CBRR</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F7F9F9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #61958C;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+
+    .user-name {
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 30px;
+      background: white;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 160px;
+      z-index: 10;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .user-menu:hover .dropdown {
+      display: block;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      color: #61958C;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #61958C;
+      margin-bottom: 25px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h3 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .form-title {
+      color: #61958C;
+    }
+
+    .two-col {
+      display: flex;
+      gap: 20px;
+    }
+
+    .two-col > div {
+      flex: 1;
+    }
+
+    .form-header {
+      background: #ffffff;
+      padding: 15px 30px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .form-actions {
+      text-align: right;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background-color: #61958C;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn:hover {
+      background-color: #4e7d76;
+    }
+
+    footer {
+    
+    background: #eee;
+    padding: 20px;
+    font-size: 13px;
+    text-align: center;
+    margin-top: auto;
+    border-top: 1px solid #ddd;
+    color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .two-col {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center;">
+    <img src="imgs/Marca_CBRR_APROVADA_FINALIZADA_SAIDA_BRANCA.png" alt="Logo CBRR">
+    <strong>Sistema de Registro Profissional</strong>
+  </div>
+  <div class="user-menu">
+    <span class="user-name">Olá, João da Silva ▾</span>
+    <div class="dropdown">
+      <a href="#">Meu Perfil</a>
+      <a href="#">Alterar Senha</a>
+      <a href="#">Sair</a>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <nav class="sidebar">
+    <a href="tela_Usuario_Dashboard.html">🏠 Dashboard</a>
+    <a href="tela_InformacoesProfissional_Etapa_AcompanhamentoStatus.html">📝 Acompanhamento Solicitação</a>
+    <a href="tela_InformacoesProfissional_Etapa01_OK.html">📋 Formulário de Solicitação de Registro</a>
+    <a href="tela_InformacoesProfissional_Etapa08_OK.html">📄 Enviar Documentos</a>
+    <a href="tela_Usuario_DadosPessoais.html">👤 Dados Pessoais</a>
+    <a href="tela_CadastroPerfilPublico.html">🧾 Perfil Público</a>
+  </nav>
+
+  <div class="content">
+    <!-- CONTINUAÇÃO DO DASHBOARD COM FORMULÁRIO ETAPA 2 -->
+    <div class="form-header">
+      <a href="tela_InformacoesProfissional_Etapa01_OK.html" class="btn">&larr; Anterior</a>
+      <h1 class="form-title"> Formulário de Solicitação de Registro - Etapa 2/8 </h1>
+      <a href="tela_InformacoesProfissional_Etapa03_OK.html" class="btn">Próximo &rarr;</a>
+    </div>
+      
+      <div class="container">
+        <h2>3. Formação Acadêmica</h2>
+        <section id="formacoes">
+          <p><em>Adicione sua(s) formação(ções) (Graduação ou Pós-Graduação)</em></p>
+      
+          <div class="formacao" style="margin-top: 20px;">
+            <label>Título</label>
+            <input type="text" placeholder="Ex: Engenharia de Minas" />
+      
+            <label>Instituição</label>
+            <input type="text" placeholder="Universidade Exemplo" />
+      
+            <label>Ano de Conclusão</label>
+            <input type="text" placeholder="AAAA" />
+          </div>
+      
+          <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button type="button" class="btn" onclick="adicionarFormacao()">+ Adicionar Formação</button>
+            <button type="button" class="btn remove-btn" onclick="removerUltima('formacoes')">Excluir Formação</button>
+          </div>
+        </section>
+      
+        <h2>4. Outras Associações Profissionais <small style="font-weight: normal;">(opcional)</small></h2>
+        <section id="associacoes">
+          <p><em>Liste outras associações relevantes</em></p>
+      
+          <div class="associacao" style="margin-top: 20px;">
+            <label>Associação</label>
+            <input type="text" placeholder="Nome da Associação" />
+      
+            <label>Número</label>
+            <input type="text" placeholder="Nº de associação" />
+      
+            <label>Data de Filiação</label>
+            <input type="date" />
+      
+            <label>Categoria</label>
+            <input type="text" placeholder="Tipo de Membro" />
+          </div>
+      
+          <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button type="button" class="btn" onclick="adicionarAssociacao()">+ Adicionar Associação</button>
+            <button type="button" class="btn remove-btn" onclick="removerUltima('associacoes')">Excluir Associação</button>
+          </div>
+        </section>
+      
+        <div class="form-actions">
+          <a href="tela_InformacoesProfissional_Etapa03_OK.html" class="btn">Próximo &rarr;</a>
+        </div>
+      </div>
+      
+      <script>
+        function adicionarFormacao() {
+          const novaFormacao = document.createElement('div');
+          novaFormacao.classList.add('formacao');
+          novaFormacao.innerHTML = `
+            <label>Título</label>
+            <input type="text" placeholder="Título do Curso" />
+      
+            <label>Instituição</label>
+            <input type="text" placeholder="Nome da Instituição" />
+      
+            <label>Ano de Conclusão</label>
+            <input type="text" placeholder="AAAA" />
+          `;
+          document.getElementById('formacoes').appendChild(novaFormacao);
+        }
+      
+        function adicionarAssociacao() {
+          const novaAssoc = document.createElement('div');
+          novaAssoc.classList.add('associacao');
+          novaAssoc.innerHTML = `
+            <label>Associação</label>
+            <input type="text" placeholder="Nome da Associação" />
+      
+            <label>Número</label>
+            <input type="text" placeholder="Nº de associação" />
+      
+            <label>Data de Filiação</label>
+            <input type="date" />
+      
+            <label>Categoria</label>
+            <input type="text" placeholder="Tipo de Membro" />
+          `;
+          document.getElementById('associacoes').appendChild(novaAssoc);
+        }
+      
+        function removerUltima(id) {
+          const container = document.getElementById(id);
+          const elementos = container.querySelectorAll('.formacao, .associacao');
+          if (elementos.length > 1) {
+            container.removeChild(elementos[elementos.length - 1]);
+          }
+        }
+      </script>
+  </div>    
+      
+  
+</div>
+
+<footer>
+  © 2025 - CBRR - <a href="#">Termos de Uso</a> - <a href="#">Política de Privacidade</a>
+</footer>
+
+</body>
+</html>

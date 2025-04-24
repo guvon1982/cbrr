@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Candidato | CBRR</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F7F9F9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #61958C;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      color: #61958C;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #61958C;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .progress-bar span {
+      padding: 8px 12px;
+      border-radius: 20px;
+      background-color: #e0e0e0;
+    }
+
+    .progress-bar .done {
+      background-color: #8CD500;
+      color: white;
+    }
+
+    .progress-bar .current {
+      background-color: #f1c40f;
+      color: white;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: #444;
+    }
+
+    .section p {
+      font-size: 14px;
+    }
+
+    .alert {
+      background-color: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .quick-links a {
+      display: inline-block;
+      background-color: #61958C;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin: 10px 10px 0 0;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .quick-links a:hover {
+      background-color: #4e7d76;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      background: #eee;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .progress-bar {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center; gap: 10px;">
+    <img src="imgs/Marca_CBRR_APROVADA_FINALIZADA_SAIDA_BRANCA.png" alt="Logo CBRR" />
+    <strong>Sistema de Registro Profissional</strong>
+  </div>
+  <div style="font-weight: bold;">Olá, João da Silva</div>
+</header>
+
+<div class="main">
+  <nav class="sidebar">
+    <a href="tela_Usuario_Dashboard.html">🏠 Dashboard</a>
+    <a href="tela_InformacoesProfissional_Etapa_AcompanhamentoStatus.html">📝 Acompanhamento Solicitação</a>
+    <a href="tela_InformacoesProfissional_Etapa01_OK.html">📋 Formulário de Solicitação de Registro</a>
+    <a href="tela_InformacoesProfissional_Etapa08_OK.html">📄 Enviar Documentos</a>
+    <a href="tela_Usuario_DadosPessoais.html">👤 Dados Pessoais</a>
+    <a href="tela_CadastroPerfilPublico.html">🧾 Perfil Público</a>
+  </nav>
+
+  <div class="content">
+    <div class="container">
+      <h2>Dashboard do Candidato</h2>
+
+      <div class="section">
+        <h3>Status da Solicitação</h3>
+        <div class="progress-bar">
+          <span class="done">Formulário</span>
+          <span class="done">Documentos</span>
+          <span class="current">Pagamento</span>
+          <span>Análise</span>
+          <span>Finalizado</span>
+        </div>
+        <p><strong>Status atual:</strong> Aguardando confirmação de pagamento (última atualização em 21/04/2025 às 14:23).</p>
+      </div>
+
+      <div class="section">
+        <h3>Mensagens do Comitê</h3>
+        <div class="alert">
+          ⚠️ O comprovante de anuidade está ilegível. Por favor, envie um novo documento no formato PDF ou JPG até 25/04/2025.
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Últimas Ações</h3>
+        <ul style="font-size: 14px; line-height: 1.6;">
+          <li>✔️ Formulário finalizado em 10/04/2025</li>
+          <li>✔️ Documentos enviados em 15/04/2025</li>
+          <li>⏳ Pagamento enviado em 20/04/2025</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Links Rápidos</h3>
+        <div class="quick-links">
+          <a href="#">📤 Enviar Novos Documentos</a>
+          <a href="#">💳 Reenviar Comprovante</a>
+          <a href="#">📄 Visualizar Formulário</a>
+          <a href="#">📬 Entrar em Contato</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 - CBRR - <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a>
+</footer>
+
+</body>
+</html>

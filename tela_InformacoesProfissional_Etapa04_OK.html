@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard + Formulário Etapa 3 - CBRR</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F7F9F9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #61958C;
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+
+    .user-name {
+      cursor: pointer;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 30px;
+      background: white;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      min-width: 160px;
+      z-index: 10;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .user-menu:hover .dropdown {
+      display: block;
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      margin-bottom: 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sidebar a:hover {
+      color: #61958C;
+    }
+
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      color: #61958C;
+      margin-bottom: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .form-title {
+      color: #61958C;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+
+    .form-header {
+      background: #ffffff;
+      padding: 15px 30px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .form-actions {
+      text-align: right;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background-color: #61958C;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn:hover {
+      background-color: #4e7d76;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      background: #eee;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; align-items: center;">
+    <img src="imgs/Marca_CBRR_APROVADA_FINALIZADA_SAIDA_BRANCA.png" alt="Logo CBRR">
+    <strong>Sistema de Registro Profissional</strong>
+  </div>
+  <div class="user-menu">
+    <span class="user-name">Olá, João da Silva ▾</span>
+    <div class="dropdown">
+      <a href="#">Meu Perfil</a>
+      <a href="#">Alterar Senha</a>
+      <a href="#">Sair</a>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <nav class="sidebar">
+    <a href="tela_Usuario_Dashboard.html">🏠 Dashboard</a>
+    <a href="tela_InformacoesProfissional_Etapa_AcompanhamentoStatus.html">📝 Acompanhamento Solicitação</a>
+    <a href="tela_InformacoesProfissional_Etapa01_OK.html">📋 Formulário de Solicitação de Registro</a>
+    <a href="tela_InformacoesProfissional_Etapa08_OK.html">📄 Enviar Documentos</a>
+    <a href="tela_Usuario_DadosPessoais.html">👤 Dados Pessoais</a>
+    <a href="tela_CadastroPerfilPublico.html">🧾 Perfil Público</a>
+  </nav>
+
+  <div class="content">
+    <div class="form-header">
+      <a href="tela_InformacoesProfissional_Etapa03_OK.html" class="btn">&larr; Anterior</a>
+      <h1 class="form-title"> Formulário de Solicitação de Registro - Etapa 4/8 </h1>
+      <a href="tela_InformacoesProfissional_Etapa05_OK.html" class="btn">Próximo &rarr;</a>
+    </div>
+
+    <div class="container">
+      <h2>7. Experiência Profissional</h2>
+      <section id="experiencias">
+        <div class="experiencia">
+          <label>Nome da Empresa / Instituição</label>
+          <input type="text" placeholder="Ex: Minerações do Brasil S.A." />
+
+          <label>Endereço</label>
+          <input type="text" placeholder="Rua, nº, Cidade, UF" />
+
+          <div class="two-col">
+            <div>
+              <label>Data Início</label>
+              <input type="date" />
+            </div>
+            <div>
+              <label>Data Fim ou Atual</label>
+              <input type="date" />
+            </div>
+          </div>
+
+          <label>Cargos Ocupados</label>
+          <input type="text" placeholder="Ex: Engenheiro Responsável Técnico" />
+
+          <label>Descrição de Atividades</label>
+          <textarea rows="4" placeholder="Descreva responsabilidades, equipe gerenciada, orçamento envolvido, posição estratégica..."></textarea>
+
+          <label>Contato para Comprovação</label>
+          <input type="text" placeholder="Nome do Contato" />
+          <input type="email" placeholder="Email para Contato" />
+          <input type="tel" class="telefone" placeholder="(00) 00000-0000" />
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+          <button type="button" class="btn" onclick="adicionarExperiencia()">+ Adicionar Experiência Profissional</button>
+          <button type="button" class="btn" onclick="removerUltimaExperiencia()">Excluir Última</button>
+        </div>
+      </section>
+
+      <div class="form-actions">
+        <a href="tela_InformacoesProfissional_Etapa05_OK.html" class="btn">Próximo &rarr;</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  function aplicarMascaraTelefone() {
+    const telefones = document.querySelectorAll('input.telefone');
+    telefones.forEach(input => {
+      input.addEventListener('input', function (e) {
+        let val = e.target.value.replace(/\D/g, '');
+        if (val.length > 11) val = val.slice(0, 11);
+        val = val.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+        e.target.value = val;
+      });
+    });
+  }
+
+  function adicionarExperiencia() {
+    const novaExp = document.createElement('div');
+    novaExp.classList.add('experiencia');
+    novaExp.innerHTML = `
+      <label>Nome da Empresa / Instituição</label>
+      <input type="text" placeholder="Ex: Nome da Empresa" />
+
+      <label>Endereço</label>
+      <input type="text" placeholder="Rua, nº, Cidade, UF" />
+
+      <div class="two-col">
+        <div>
+          <label>Data Início</label>
+          <input type="date" />
+        </div>
+        <div>
+          <label>Data Fim ou Atual</label>
+          <input type="date" />
+        </div>
+      </div>
+
+      <label>Cargos Ocupados</label>
+      <input type="text" placeholder="Cargo principal ocupado" />
+
+      <label>Descrição de Atividades</label>
+      <textarea rows="4" placeholder="Descreva atividades desenvolvidas"></textarea>
+
+      <label>Contato para Comprovação</label>
+      <input type="text" placeholder="Nome do Contato" />
+      <input type="email" placeholder="Email para Contato" />
+      <input type="tel" class="telefone" placeholder="(00) 00000-0000" />
+    `;
+    document.getElementById('experiencias').appendChild(novaExp);
+    aplicarMascaraTelefone();
+  }
+
+  function removerUltimaExperiencia() {
+    const experiencias = document.querySelectorAll('.experiencia');
+    if (experiencias.length > 1) {
+      experiencias[experiencias.length - 1].remove();
+    }
+  }
+
+  function adicionarAssociacao() {
+    const novaAssoc = document.createElement('div');
+    novaAssoc.classList.add('associacao');
+    novaAssoc.innerHTML = `
+      <label>Associação</label>
+      <input type="text" placeholder="Nome da Associação" />
+
+      <label>Número</label>
+      <input type="text" placeholder="Nº de associação" />
+
+      <label>Data de Filiação</label>
+      <input type="date" />
+
+      <label>Categoria</label>
+      <input type="text" placeholder="Tipo de Membro" />
+    `;
+    document.getElementById('associacoes').appendChild(novaAssoc);
+  }
+
+  function removerUltimaAssociacao() {
+    const associacoes = document.querySelectorAll('.associacao');
+    if (associacoes.length > 1) {
+      associacoes[associacoes.length - 1].remove();
+    }
+  }
+
+  window.onload = aplicarMascaraTelefone;
+</script>
+
+
+
+</div>
+
+<footer>
+  © 2025 - CBRR - <a href="#">Termos de Uso</a> - <a href="#">Política de Privacidade</a>
+</footer>
+
+<script>
+  function toggleGeotecnia(el) {
+    const subarea = document.getElementById('geotecniaSubareas');
+    subarea.style.display = el.checked ? 'block' : 'none';
+  }
+</script>
+
+</body>
+</html>
